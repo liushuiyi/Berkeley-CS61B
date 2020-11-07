@@ -13,7 +13,7 @@ public class LeapYear {
             System.out.printf("%d is not a leap year.\n", year);
         }
     }
-    
+
     public static boolean isLeapYear(int year) {
         if(year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
             return true;
