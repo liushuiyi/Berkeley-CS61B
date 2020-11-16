@@ -4,9 +4,14 @@ public class Array {
         int [] test = {3, 2, 1};
 //        test = Array.insert(test, 6, 2);
 //        reverse(test);
-        test = replicate(test);
-        for(int i : test) {
-            System.out.print(i + " ");
+//        test = replicate(test);
+//        for(int i : test) {
+//            System.out.print(i + " ");
+//        }
+        int[][] test1 = {{1, 2, 3}, {}, {7, 8}};
+        int[] a = Array.flatten(test1);
+        for(int t : a) {
+            System.out.print(t + " ");
         }
     }
     // 5, 9, 14, 15 position = 2
@@ -53,5 +58,21 @@ public class Array {
             }
         }
         return result;
+    }
+
+    public static int[] flatten(int[][] x) {
+        int totalLength = 0;
+        for(int[] arr : x) {
+            totalLength += arr.length;
+        }
+        int[] a = new int[totalLength];
+        int aIndex = 0;
+        for(int[] arr : x) {
+            for(int element : arr) {
+                a[aIndex] = element;
+                aIndex++;
+            }
+        }
+        return a;
     }
 }

@@ -31,4 +31,39 @@ public class IntList {
 
         System.out.println(L.get(1));
     }
+
+    public void skippify() {
+        IntList p = this;
+        int n = 1;
+        while (p != null) {
+            IntList next = p.rest;
+            for(int i = 0; i < n; i++) {
+                if(next == null) {
+                    break;
+                }
+                next = next.rest;
+            }
+            p.rest = next;
+            p = p.rest;
+            n++;
+        }
+    }
+    /**
+      * Given a sorted linked list of items - remove duplicates.
+      * For example given 1 -> 2 -> 2 -> 2 -> 3,
+      * Mutate it to become 1 -> 2 -> 3 (destructively)
+      */
+    public static void removeDuplicates(IntList head) {
+        if(head == null) return;
+        IntList prev = head;
+        IntList cur = head.rest;
+        while(cur != null) {
+            if(cur.first == prev.first) {
+                prev.rest = cur.rest;
+            }else {
+                prev = cur;
+            }
+            cur = cur.rest;
+        }
+    }
 }
