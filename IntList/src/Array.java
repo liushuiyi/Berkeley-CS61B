@@ -1,19 +1,37 @@
+import java.util.Arrays;
+
 public class Array {
 
     public static void main(String[] args) {
-        int [] test = {3, 2, 1};
 //        test = Array.insert(test, 6, 2);
 //        reverse(test);
 //        test = replicate(test);
 //        for(int i : test) {
 //            System.out.print(i + " ");
 //        }
-        int[][] test1 = {{1, 2, 3}, {}, {7, 8}};
+        int[][] test1 = {{1, 2, 3}, {}, {7, 8, 3}};
         int[] a = Array.flatten(test1);
         for(int t : a) {
             System.out.print(t + " ");
         }
+        int [] testMystery = {3, 2, 1, 2};
+        System.out.println(mystery(testMystery));;
     }
+
+    public static boolean mystery(int[] array) {
+        Arrays.sort(array);
+        // 1, 2, 2, 3
+        boolean res = false;
+        for(int i = 1; i < array.length - 1; i++) {
+            if(array[i] == array[i - 1]) {
+                res = true;
+                break;
+            }
+        }
+        return res;
+    }
+
+
     // 5, 9, 14, 15 position = 2
     public static int[] insert(int[] arr, int item, int position) {
         int[] result = new int[arr.length + 1]; // 5
