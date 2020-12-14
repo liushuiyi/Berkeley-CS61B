@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.TreeMap;
 
 public class Array {
 
@@ -15,7 +16,8 @@ public class Array {
             System.out.print(t + " ");
         }
         int [] testMystery = {3, 2, 1, 2};
-        System.out.println(mystery(testMystery));;
+        System.out.println(mystery(testMystery));
+        TreeMap<Integer, Integer> map = new TreeMap<>();
     }
 
     public static boolean mystery(int[] array) {
